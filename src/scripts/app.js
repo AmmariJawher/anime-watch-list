@@ -5,6 +5,7 @@ const list = document.querySelector(".list")
 const addItem = document.querySelector(".add-item")
 const input = document.querySelector("input")
 const addButton = document.querySelector(".add")
+const errorMessage = document.querySelector(".error")
 
 // Variables
 let id = 0
@@ -19,10 +20,8 @@ const LINE_THROUGH = "line-through"
 let data = localStorage.getItem("TODO")
 
 if (data !== "[]") {
-  console.log(itemsList);
   itemsList.splice(0, itemsList.length)
-  console.log(itemsList);
-  itemsList = JSON.parse(data)  
+  itemsList = JSON.parse(data) 
   id = itemsList.length
   loadList(itemsList)
 } else {  
@@ -69,9 +68,9 @@ function addItemToList(toDo, idArg, done) {
   let DONE = done ? CHECK : UNCHECK
   let LINE = done ? LINE_THROUGH : ""
   const item = `<li class="item">
-  <i class="${DONE} fa-check-circle" job="complete" id="${id}"></i>
+  <i class="${DONE} fa-check-circle button" job="complete" id="${id}"></i>
   <span class="text ${LINE}">${toDo}</span>
-  <i class="fas fa-minus-circle delete" job="delete" id="${id}"></i>
+  <i class="fas fa-minus-circle delete button" job="delete" id="${id}"></i>
   </li>`
   list.insertAdjacentHTML("beforeend", item)
 }
@@ -83,6 +82,8 @@ addItem.addEventListener("keyup", function (event) {
     if (toDo) {
       addItemToList(toDo, id)
       saveLocally()
+    }else {
+      showMessage(errorMessage);
     }
     input.value = ""
   }
@@ -91,13 +92,24 @@ addItem.addEventListener("keyup", function (event) {
 // Fire addItemToList function once the user add Item and Click on icon.
 addButton.addEventListener("click", function () {
   const toDo = input.value
-  if (toDo) {
+  if (toDo && toDo.length < 60) {
+    console.log(toDo.length);
+    
     addItemToList(toDo, id)
     saveLocally()
+  }else {
+    showMessage(errorMessage);
   }
   input.value = ""
 })
 
+// Error message
+function showMessage(element) {
+  element.style.opacity = 1
+  setTimeout(function () {
+    element.style.opacity = 0
+  }, 2000)
+}
 // Check item as complete
 function toDoComplete(element) {
   // if class exist: remove, else: add

@@ -306,7 +306,7 @@ template {
 .container {
   width: 500px;
   margin: auto;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600; }
 
 .shadow {
@@ -321,6 +321,14 @@ i {
   color: #777777;
   text-decoration: line-through; }
 
+.button {
+  color: #ffffff;
+  padding: 7px;
+  background: #016ee9;
+  border: none;
+  border-radius: 25px;
+  text-shadow: 0px 0px 12px #016ee9; }
+
 header {
   height: 200px;
   background: url("../img/bg.jpg") no-repeat top;
@@ -329,6 +337,19 @@ header {
   border-top-right-radius: 10px;
   color: #ffffff;
   font-size: 16px; }
+  header .error {
+    background: #fe5778;
+    border: none;
+    border-radius: 25px;
+    transition-duration: 0.5s;
+    opacity: 0;
+    position: fixed;
+    top: 10px;
+    padding: 10px;
+    width: 220px;
+    margin-left: 110px; }
+    header .error p {
+      margin: auto; }
   header p {
     float: left;
     margin: 0; }
@@ -337,33 +358,35 @@ header {
 
 section {
   height: 400px;
-  position: relative; }
+  background: #eaf1fc;
+  padding-top: 1px; }
   section .list {
-    padding: 0; }
+    padding: 0 10px; }
     section .list .item {
-      border-bottom: 1px #dddddd solid;
-      margin: 0;
-      list-style: none; }
-      section .list .item .check {
-        color: #003399;
-        padding: 10px; }
+      margin: 0 20px;
+      list-style: none;
+      background: #ffffff;
+      margin: 5px 0;
+      border-radius: 5px;
+      padding: 10px 20px; }
+      section .list .item .fa-check-circle {
+        margin-right: 10px; }
       section .list .item span {
+        color: #050942;
         padding: 10px 0; }
       section .list .item .delete {
-        float: right;
-        padding: 10px; }
+        float: right; }
   section .add-item {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    margin: 0; }
-    section .add-item i {
-      padding: 5px 10px;
-      color: #777777; }
+    margin: 0;
+    padding: 10px 10px;
+    background: #ffffff; }
     section .add-item a:hover {
       color: #003399; }
     section .add-item input {
-      padding: 5px 0;
-      width: 460px;
-      float: right;
+      width: 400px;
+      padding: 5px 5px;
+      margin-left: 5px;
       border: none; }
