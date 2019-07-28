@@ -1,6 +1,87 @@
-$body-color: black;
+.container {
+    width: 500px;
+    margin: auto;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+}
 
-body {
-    background: $body-color;
-    color: palevioletred;
+.shadow {
+    padding: 10px;
+    text-shadow: 0px 0px 4px #000000;
+}
+
+i {
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+.line-through {
+    color: #777777;
+    text-decoration: line-through;
+}
+
+header {
+    height: 200px;
+    background: url("../img/bg.jpg") no-repeat top;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #ffffff;
+    font-size: 16px;
+
+    p {
+        float: left;
+        margin: 0;
+    }
+
+    i {
+        float: right;
+    }
+}
+
+section {
+    height: 400px;
+    position: relative;
+
+    .list {
+        padding: 0;
+        .item {
+            border-bottom: 1px #dddddd solid;
+            margin: 0;
+            list-style: none;
+            
+            
+            .check {
+                color: #003399;
+                padding: 10px;
+            }
+            span {
+                padding: 10px 0;
+            }
+            .delete {
+                float: right;
+                padding: 10px;
+            }            
+        }
+    }
+    .add-item {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+
+        i {
+            padding: 5px 10px;
+            color: #777777;
+        }
+        a:hover {
+            color: #003399;
+        }
+        input {
+            padding: 5px 0;
+            width: 460px;
+            float: right;
+            border: none
+        }
+    }
 }

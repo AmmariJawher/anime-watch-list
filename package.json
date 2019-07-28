@@ -3,17 +3,23 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:js": "npm run build:js",
+    "build:js": "npm run lint && npm run pretest",
+    "lint": "eslint ./src/scripts/**/*.js",
+    "pretest": "npm run lint"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.5",
+    "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
     "pump": "^3.0.0",
-    "uglify-es": "^3.3.9"
+    "uglify-es": "^3.3.9",
+    "eslint": "^6.0.0",
+    "eslint-plugin-eslint-plugin": "^2.0.1"
   },
   "dependencies": {
     "axios": "^0.18.1"
