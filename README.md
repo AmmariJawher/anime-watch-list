@@ -1,2 +1,1 @@
-# web-project-base
-a simple web project starter kit to speed up my workflow.
+# a list where you can add shows you want to watch
